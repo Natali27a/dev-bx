@@ -1,7 +1,10 @@
 <?php
 
-require 'read.php';
+require 'test.php';
 
-$a = readFromConsole('Введите числа:');
-
-echo $a;
+testing();
+while (true){
+	$res = readFromConsole();
+	if($res === 'stop')break;
+	echo var_export($res, true).PHP_EOL;
+}

@@ -1,16 +1,18 @@
 <?php
 
-function readFromConsole($arg)
+function readFromConsole($input=null)
 {
-	echo $arg;
-	$input = trim(fgets(STDIN));
-	$res = explode(" ",$input);
-	$output = 0;
-	for ($i=0; $i<count($res); $i++)
-	{
-		$res[$i] = (int)$res[$i];
-		$output += $res[$i];
+	if($input == null){
+		echo 'Введите строку (для выхода напишите stop): ';
+		$input = trim(fgets(STDIN));
 	}
-	return $output;
-
+	if(is_numeric($input)){
+		$exppos = strpos($input,'e');
+		if(strpos($input,'.') !== false || ($exppos !== 0 && $exppos !== $input.ob_get_length() - 1 && substr_count($input, 'e') === 1 )) return (double)$input;
+		return (int)$input;
+	}
+	if($input == 'true') return true;
+	if($input == 'false') return false;
+	if(strpos($input,'!') === 0) return null;
+	return $input;
 }
