@@ -1,3 +1,7 @@
 <?php
-echo 'Hello, GitHub';
-echo 'Natasha';
+require 'FileFunctions.php';
+//require 'testing.php';
+
+
+$result = getDirectoryStatus('test1');
+echo $result;
