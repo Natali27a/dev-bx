@@ -108,4 +108,5 @@ function test($testInput, $answer)
 	echo 'Результат: for input '.var_export($testInput, true) .($res === $answer ? ' passed':' failed').PHP_EOL;
 }
 
-testing();
+//testing();
+

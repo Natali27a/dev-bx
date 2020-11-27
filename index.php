@@ -3,5 +3,5 @@ require 'FileFunctions.php';
 //require 'testing.php';
 
 
-$result = getDirectoryStatus('test1');
+$result = getDirectoryStatus('Site');
 echo $result;
