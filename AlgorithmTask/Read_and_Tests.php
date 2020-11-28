@@ -11,15 +11,16 @@ function readFromConsole($input=null)
 
 class ChessRook
 {
-	public function __construct($Rpos1,$Cpos1,$Rpos2,$Cpos2)
+	public function __construct($Rpos1,$Cpos1)
 	{
 		$this -> startRow = $Rpos1;
 		$this -> startCol = $Cpos1;
-		$this -> finishRow = $Rpos2;
-		$this -> finishCol = $Cpos2;
+
 	}
 
-	public function comparePos(){
+	public function Go($Rpos2,$Cpos2){
+		$this -> finishRow = $Rpos2;
+		$this -> finishCol = $Cpos2;
 		if((($this -> startRow)==($this -> finishRow))||(($this -> startCol)==($this -> finishCol)))return "Yes";
 		else return "No";
 	}
@@ -50,8 +51,8 @@ function testing(){
 function test($testInput, $answer)
 {
 	$array = readFromConsole($testInput);
-	$res = new ChessRook($array[0], $array[1], $array[2], $array[3]);
-	echo 'Результат: for input '.var_export($testInput, true).($res->comparePos() === $answer ? ' passed':' failed').PHP_EOL;
+	$res = new ChessRook($array[0], $array[1]);
+	echo 'Результат: for input '.var_export($testInput, true).($res->Go( $array[2], $array[3]) === $answer ? ' passed':' failed').PHP_EOL;
 }
 
 
