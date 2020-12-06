@@ -20,6 +20,7 @@ class Calculator
 
 	public function divide(int $a, int $b): float
 	{
+
 		if($b === 0)
 		{
 			throw new InvalidArgumentException('Divider cant be a zero');

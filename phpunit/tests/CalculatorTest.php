@@ -26,12 +26,15 @@ class CalculatorTest extends TestCase
 	public function testDivideException(): void
 	{
 		$calculator = new Calculator();
-		$this->expectExceptionMessage("Divider cant be a zero");
-		self::assertEquals("Divider cant be a zero", $calculator->divide(5, 0));
+
 		self::assertEquals(0, $calculator->divide(0, 5));
 		self::assertEquals(-2, $calculator->divide(10, -5));
 		self::assertEquals(100, $calculator->divide(100, 1));
 		self::assertEquals(1.5, $calculator->divide(3, 2));
+
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage("Divider cant be a zero");
+		$calculator->divide(5, 0);
 	}
 
 	public function testMultiply(): void
@@ -55,11 +58,16 @@ class CalculatorTest extends TestCase
 	public function testSquareRoot(): void
 	{
 		$calculator = new Calculator();
-		$this->expectExceptionMessage("Argument cant be a negative");
+
 		self::assertEquals(2, $calculator->squareRoot(4));
-		self::assertEquals("Argument cant be a negative", $calculator->squareRoot(-100));
 		self::assertEquals(100, $calculator->squareRoot(10000));
 		self::assertEquals(1, $calculator->squareRoot(1));
+
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage("Argument cant be a negative");
+		$calculator->squareRoot(-100);
+
+
 	}
 
 }
