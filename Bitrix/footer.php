@@ -3,7 +3,7 @@
 <div class="soc_block">
 	<h5>Trusted by the World’s Best Companies</h5>
 	<div class="center-img">
-		<img src="значки.png" class="img" alt="...">
+		<img src="soc.png" class="img" alt="...">
 	</div>
 </div>
 <div class="footer">
